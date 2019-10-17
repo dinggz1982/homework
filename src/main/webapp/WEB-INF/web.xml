@@ -10,8 +10,18 @@
   	<description>处理用户注册</description>
   	<servlet-class>gzhu.edu.cn.homework.servlet.RegisterServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>SchoolServlet</servlet-name>
+  	<display-name>SchoolServlet</display-name>
+  	<description></description>
+  	<servlet-class>gzhu.edu.cn.homework.admin.servlet.SchoolServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>RegisterServlet</servlet-name>
   	<url-pattern>/register</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SchoolServlet</servlet-name>
+  	<url-pattern>/admin/school</url-pattern>
   </servlet-mapping>
 </web-app>
