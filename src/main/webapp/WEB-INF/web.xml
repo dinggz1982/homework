@@ -9,6 +9,7 @@
 		<servlet-class>gzhu.edu.cn.homework.servlet.RegisterServlet</servlet-class>
 	</servlet>
 	<servlet>
+	
 		<servlet-name>SchoolServlet</servlet-name>
 		<display-name>SchoolServlet</display-name>
 		<description></description>
