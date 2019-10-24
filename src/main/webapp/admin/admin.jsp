@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>后台管理</title>
- <link rel="stylesheet" href="../static/layui/css/layui.css">
+<%@include file="../include/head.jsp" %>
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
@@ -29,7 +29,7 @@
       <li class="layui-nav-item">
         <a href="javascript:;">
           <img src="../static/images/tx.jpg" class="layui-nav-img">
-          管理员
+          ${currentUser.realname }
         </a>
         <dl class="layui-nav-child">
           <dd><a href="">基本资料</a></dd>
@@ -75,7 +75,6 @@
     © 广州大学-教育技术181-作业管理系统
   </div>
 </div>
-<script src="../static/layui/layui.js"></script>
 <script>
 //JavaScript代码区域
 layui.use('element', function(){
