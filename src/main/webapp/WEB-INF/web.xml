@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
-  <display-name>Archetype Created Web Application</display-name>
-  
-  <jsp-config>
-    <jsp-propert-group>
-        <url-pattern>*</url-pattern>
+<!DOCTYPE web-app PUBLIC"-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+ <web-app>
+	<display-name>Arc hetype Created Web Application</display-name>
+	<servlet>
+		<servlet-name>RegisterServlet</servlet-name>
+		<display-name>RegisterServlet</display-name>
+		<description>处理用户注册</description>
+		<servlet-class>gzhu.edu.cn.homework.servlet.RegisterServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SchoolServlet</servlet-name>
+		<display-name>SchoolServlet</display-name>
+		<description></description>
+		<servlet-class>gzhu.edu.cn.homework.admin.servlet.SchoolServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<display-name>LoginServlet</display-name>
+		<description></description>
+		<servlet-class>gzhu.edu.cn.homework.admin.servlet.LoginServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AdminServlet</servlet-name>
+		<display-name>AdminServlet</display-name>
+		<description></description>
+		<servlet-class>gzhu.edu.cn.homework.admin.servlet.AdminServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RegisterServlet</servlet-name>
+		<url-pattern>/register</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SchoolServlet</servlet-name>
+		<url-pattern>/admin/school</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AdminServlet</servlet-name>
+		<url-pattern>/admin</url-pattern>
+	</servlet-mapping>
+	<jsp-config>
+    <jsp-property-group>
+        <url-pattern>*.jsp</url-pattern>
         <el-ignored>false</el-ignored>
-    </jsp-propert-group>
+        <scripting-invalid>true</scripting-invalid>
+    </jsp-property-group>
 </jsp-config>
-
-  <servlet>
-  	<servlet-name>RegisterServlet</servlet-name>
-  	<display-name>RegisterServlet</display-name>
-  	<description>处理用户注册</description>
-  	<servlet-class>gzhu.edu.cn.homework.servlet.RegisterServlet</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>SchoolServlet</servlet-name>
-  	<display-name>SchoolServlet</display-name>
-  	<description></description>
-  	<servlet-class>gzhu.edu.cn.homework.admin.servlet.SchoolServlet</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>LoginServlet</servlet-name>
-  	<display-name>LoginServlet</display-name>
-  	<description></description>
-  	<servlet-class>gzhu.edu.cn.homework.admin.servlet.LoginServlet</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>AdminServlet</servlet-name>
-  	<display-name>AdminServlet</display-name>
-  	<description></description>
-  	<servlet-class>gzhu.edu.cn.homework.admin.servlet.AdminServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>RegisterServlet</servlet-name>
-  	<url-pattern>/register</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>SchoolServlet</servlet-name>
-  	<url-pattern>/admin/school</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>LoginServlet</servlet-name>
-  	<url-pattern>/login</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>AdminServlet</servlet-name>
-  	<url-pattern>/admin</url-pattern>
-  </servlet-mapping>
 </web-app>
