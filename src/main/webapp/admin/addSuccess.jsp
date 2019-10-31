@@ -6,6 +6,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-新增成功！
+新增或修改成功！
 </body>
 </html>

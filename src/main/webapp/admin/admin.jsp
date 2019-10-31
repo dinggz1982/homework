@@ -48,7 +48,7 @@
           <a class="" href="javascript:;">管理设置</a>
           <dl class="layui-nav-child">
             <dd><a href="<%=basePath %>admin/school">学校管理</a></dd>
-            <dd><a href="javascript:;">学院管理</a></dd>
+            <dd><a href="<%=basePath %>admin/college">学院管理</a></dd>
             <dd><a href="javascript:;">专业管理</a></dd>
             <dd><a href="">教师管理</a></dd>
           </dl>

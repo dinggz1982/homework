@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>后台管理</title>
+<%@include file="../include/head.jsp" %>
 <link rel="stylesheet" href="../static/layui/css/layui.css">
 </head>
 <body class="layui-layout-body">
@@ -59,7 +60,7 @@
 								<a href="javascript:;" class="layui-this">学校管理</a>
 							</dd>
 							<dd>
-								<a href="javascript:;">学院管理</a>
+								<a href="<%=basePath %>admin/college">学院管理</a>
 							</dd>
 							<dd>
 								<a href="javascript:;">专业管理</a>
