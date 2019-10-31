@@ -89,7 +89,7 @@
 				<div style="width: 90%; margin: 0 auto;">
 					
 					<div>
-					<a href="addSchool.jsp" class="layui-btn layui-btn-normal">新增学校</a>
+					<a onclick="addSchool()" class="layui-btn layui-btn-normal">新增学校</a>
 					</div>
 					
 					<table class="layui-table">
@@ -116,7 +116,7 @@
 									<td>${school.tel }</td>
 									<td>
 									<a onclick="addCollege(${school.id},'${school.name }')" class="layui-btn layui-btn-normal">新增学院</a>
-									<a href="#" class="layui-btn layui-btn-normal">修改</a>
+									<a onclick="editSchool(${school.id})" class="layui-btn layui-btn-normal">修改</a>
 									<a href="#" class="layui-btn layui-btn-normal">删除</a>
 									
 									</td>
@@ -153,7 +153,31 @@
 				  content: 'college?method=add&schoolId='+schoolId //iframe的url
 				}); 
 		}
-		
+		//新增学校
+		function addSchool(){
+			layer.open({
+				  type: 2,
+				  title: '新增学校学院',
+				  shadeClose: true,
+				  shade: 0.8,
+				  area: ['600px', '400px'],
+				  content: 'addSchool.jsp', //iframe的url
+				  end:function(){
+					  location.reload();
+				  }
+				}); 
+		}
+		//修改学校
+		function editSchool(schoolId){
+			layer.open({
+				  type: 2,
+				  title: '修改学校信息',
+				  shadeClose: true,
+				  shade: 0.8,
+				  area: ['600px', '400px'],
+				  content: 'school?method=edit&schoolId='+schoolId //iframe的url
+				}); 
+		}
 	</script>
 </body>
 </html>

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import gzhu.edu.cn.homework.admin.dao.SchoolDao;
 import gzhu.edu.cn.homework.admin.entity.School;
+import gzhu.edu.cn.homework.admin.service.SchoolService;
 
 /**
  * Servlet implementation class SchoolServlet
@@ -18,6 +19,7 @@ import gzhu.edu.cn.homework.admin.entity.School;
 public class SchoolServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	private SchoolService schoolService = new SchoolService();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -25,30 +27,39 @@ public class SchoolServlet extends HttpServlet {
 
 		String method = request.getParameter("method");
 		if (method == null || method.length() == 0) {
-			// 显示学校列表页面
-			SchoolDao dao = new SchoolDao();
-			List<School> schools = 	dao.findAll();
+			// 鏄剧ず瀛︽牎鍒楄〃
+			List<School> schools = 	schoolService.getAllSchool();
 			for (Iterator iterator = schools.iterator(); iterator.hasNext();) {
 				School school = (School) iterator.next();
-				System.out.println(school.getName());
 			}
 			request.setAttribute("schools", schools);
-			
 			request.setAttribute("school", "123");
 			request.getRequestDispatcher("school.jsp").forward(request, response);
 		
 		} else if (method.equals("add")) {
 			String name = request.getParameter("name");
-			String address = request.getParameter("name");
-			String tel = request.getParameter("name");
+			String address = request.getParameter("address");
+			String tel = request.getParameter("tel");
 			School school = new School();
 			school.setAddress(address);
 			school.setName(name);
 			school.setTel(tel);
-			SchoolDao dao = new SchoolDao();
-			dao.saveSchool(school);
+			String schoolId = request.getParameter("id");
+			if(schoolId==null) {
+				schoolService.saveSchool(school);
+			}else {
+				int id = Integer.parseInt(schoolId);
+				school.setId(id);
+				this.schoolService.updateSchool(school);
+			}
 			
-			response.sendRedirect("../admin/school");
+			request.getRequestDispatcher("addSuccess.jsp").forward(request, response);
+		}
+		else if (method.equals("edit")) {
+			int schoolId = Integer.parseInt(request.getParameter("schoolId"));
+			School school = this.schoolService.getSchoolById(schoolId);
+			request.setAttribute("school",school);
+			request.getRequestDispatcher("addSchool.jsp").forward(request, response);
 		}
 	}
 

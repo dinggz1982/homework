@@ -1,8 +1,8 @@
-#jdbcµÄÇı¶¯
+#jdbcé©±åŠ¨
 jdbc.driver=com.mysql.cj.jdbc.Driver
-#jdbcµØÖ·
+#jdbc URLÖ·
 jdbc.url=jdbc:mysql://localhost/jyjs181?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
-#Êı¾İ¿âÁ¬½ÓµÄÓÃ»§Ãû
+#æ•°æ®åº“ç”¨æˆ·å
 jdbc.username=root
-#Êı¾İ¿âÁ¬½ÓµÄµØÖ·
-jdbc.password=123456
+#æ•°æ®åº“å¯†ç Ö·
+jdbc.password=root

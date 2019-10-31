@@ -9,12 +9,16 @@ public class SchoolService {
 
 	private SchoolDao dao = new SchoolDao();
 
+	/**
+	 * 鍙栧緱鍏ㄩ儴瀛︽牎鏁版嵁
+	 * @return
+	 */
 	public List<School> getAllSchool() {
 		return dao.findAll();
 	}
 
 	/**
-	 * 根据学校的id获取学校信息
+	 * 鏍规嵁瀛︽牎id鑾峰彇瀛︽牎淇℃伅
 	 * @param id
 	 * @return
 	 */
@@ -22,4 +26,21 @@ public class SchoolService {
 		return dao.getSchoolById(id);
 	}
 
+	/**
+	 * 淇濆瓨瀛︽牎
+	 * @param school
+	 * @return
+	 */
+	public boolean saveSchool(School school) {
+		return dao.saveSchool(school);
+	}
+	
+	/**
+	 * 鏇存柊淇濆瓨瀛︽牎
+	 * @param school
+	 * @return
+	 */
+	public boolean updateSchool(School school) {
+		return dao.updateSchool(school);
+	}
 }
