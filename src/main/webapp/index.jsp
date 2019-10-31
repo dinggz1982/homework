@@ -7,11 +7,7 @@
 <title>这是首页</title>
 </head>
 <body>
-<table border="1" style="font-size: 40px;width: 80%;margin: 0 auto;text-align: center;">
-		<tr >
-			<td>Id</td>
-			<td>姓名</td>
-		</tr>
-	</table>
+<h1>java 程序设计</h1>
+<h2>作业管理系统</h2>
 </body>
 </html>

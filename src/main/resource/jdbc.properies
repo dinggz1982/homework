@@ -5,4 +5,4 @@ jdbc.url=jdbc:mysql://localhost/jyjs181?useUnicode=true&characterEncoding=UTF-8&
 #数据库连接的用户名
 jdbc.username=root
 #数据库连接的地址
-jdbc.password=root
+jdbc.password=123456

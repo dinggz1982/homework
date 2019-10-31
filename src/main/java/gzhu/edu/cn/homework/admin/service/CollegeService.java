@@ -13,5 +13,13 @@ public class CollegeService {
 		return collegeDao.findAll();
 	} 
 	
+	public boolean saveCollgeg(College college) {
+		return this.collegeDao.saveCollege(college);
+	}
+	
+	public List<College> getCollegeBySchoolId(int schoolId){
+		return collegeDao.findCollegeBySchoolId(schoolId);
+	} 
+	
 	
 }

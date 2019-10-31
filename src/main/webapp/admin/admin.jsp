@@ -47,7 +47,7 @@
         <li class="layui-nav-item layui-nav-itemed">
           <a class="" href="javascript:;">管理设置</a>
           <dl class="layui-nav-child">
-            <dd><a href="school">学校管理</a></dd>
+            <dd><a href="admin/school">学校管理</a></dd>
             <dd><a href="javascript:;">学院管理</a></dd>
             <dd><a href="javascript:;">专业管理</a></dd>
             <dd><a href="">教师管理</a></dd>

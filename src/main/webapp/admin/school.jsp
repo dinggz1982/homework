@@ -111,11 +111,11 @@
 							<c:forEach items="${schools }" var="school" varStatus="status">
 								<tr>
 									<td>${status.index+1 }</td>
-									<td>${school.name }</td>
+									<td><a href="college?method=list&schoolId=${school.id}" target="_blank">${school.name }</a></td>
 									<td>${school.address }</td>
 									<td>${school.tel }</td>
 									<td>
-									<a href="#" class="layui-btn layui-btn-normal">新增学院</a>
+									<a onclick="addCollege(${school.id},'${school.name }')" class="layui-btn layui-btn-normal">新增学院</a>
 									<a href="#" class="layui-btn layui-btn-normal">修改</a>
 									<a href="#" class="layui-btn layui-btn-normal">删除</a>
 									
@@ -140,6 +140,20 @@
 			var element = layui.element;
 
 		});
+		layui.use('layer', function(){
+			  var layer = layui.layer;
+			});     
+		function addCollege(schoolId,schoolName){
+			layer.open({
+				  type: 2,
+				  title: '为'+schoolName + '新增学院',
+				  shadeClose: true,
+				  shade: 0.8,
+				  area: ['600px', '400px'],
+				  content: 'college?method=add&schoolId='+schoolId //iframe的url
+				}); 
+		}
+		
 	</script>
 </body>
 </html>

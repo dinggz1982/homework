@@ -56,7 +56,7 @@
 						href="javascript:;">管理设置</a>
 						<dl class="layui-nav-child">
 							<dd>
-								<a href="javascript:;" class="layui-this">学校管理</a>
+								<a href="../admin/school" class="layui-this" >学校管理</a>
 							</dd>
 							<dd>
 								<a href="javascript:;">学院管理</a>
@@ -85,11 +85,11 @@
 		<div class="layui-body">
 			<!-- 内容主体区域 -->
 			<div style="padding: 15px;">
-	<h1>学院列表</h1>
+	<h1>${school.name }--学院列表</h1>
 				<div style="width: 90%; margin: 0 auto;">
 					
 					<div>
-					<a href="addSchool.jsp" class="layui-btn layui-btn-normal">新增学校</a>
+					<a href="addSchool.jsp" class="layui-btn layui-btn-normal">新增学院</a>
 					</div>
 					
 					<table class="layui-table">

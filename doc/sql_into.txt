@@ -1,0 +1,2 @@
+根据专业名字，查询相关的学校和学院
+select s.id,s.name,c.name,c.id,m.name,m.id from major m,school s,college c,major_college mj where m.name='教育技术' and s.id=c.school_id and mj.major_id=m.id and c.id = mj.college_id;

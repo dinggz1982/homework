@@ -59,7 +59,7 @@ public class CollegeDao {
 	 */
 	public List<College> findAll() {
 		ResultSet resultSet = DbUtils.find(
-				"select s.id as sid,s.name as sname,s.address as saddress,s.tel as stel,c.id as cid,c.name as cname,c.address as caddress,c.tel ad ctel from school s,college c where  s.id=c.school_id");
+				"select s.id as sid,s.name as sname,s.address as saddress,s.tel as stel,c.id as cid,c.name as cname,c.address as caddress,c.tel as ctel from school s,college c where  s.id=c.school_id");
 
 		List<College> colleges = new ArrayList<College>();
 
@@ -82,6 +82,7 @@ public class CollegeDao {
 					String caddress = resultSet.getString("caddress");
 					String ctel = resultSet.getString("ctel");
 					college.setAddress(caddress);
+					college.setId(cid);
 					college.setName(cname);
 					college.setSchool(school);
 					college.setTel(ctel);
@@ -98,4 +99,48 @@ public class CollegeDao {
 		return colleges;
 	}
 
+	/**
+	 * ≤È—Ø
+	 * 
+	 * @return
+	 */
+	public List<College> findCollegeBySchoolId(int schoolId) {
+		ResultSet resultSet = DbUtils.find(
+				"select s.id as sid,s.name as sname,s.address as saddress,s.tel as stel,c.id as cid,c.name as cname,c.address as caddress,c.tel as ctel from school s,college c where  s.id=c.school_id and s.id="+schoolId);
+		List<College> colleges = new ArrayList<College>();
+		try {
+			while (resultSet.next()) {
+				try {
+					int sid = resultSet.getInt("sid");
+					String sname = resultSet.getString("sname");
+					String saddress = resultSet.getString("saddress");
+					String stel = resultSet.getString("stel");
+					School school = new School();
+					school.setId(sid);
+					school.setAddress(saddress);
+					school.setName(sname);
+					school.setTel(stel);
+					
+					College college = new College();
+					int cid = resultSet.getInt("cid");
+					String cname = resultSet.getString("cname");
+					String caddress = resultSet.getString("caddress");
+					String ctel = resultSet.getString("ctel");
+					college.setAddress(caddress);
+					college.setId(cid);
+					college.setName(cname);
+					college.setSchool(school);
+					college.setTel(ctel);
+					colleges.add(college);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return colleges;
+	}
 }

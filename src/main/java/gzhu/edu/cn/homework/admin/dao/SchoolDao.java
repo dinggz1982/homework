@@ -58,10 +58,10 @@ public class SchoolDao {
 		try {
 			while (resultSet.next()) {
 				try {
-					int id = resultSet.getInt(1);
-					String name = resultSet.getString(2);
-					String address = resultSet.getString(3);
-					String tel = resultSet.getString(4);
+					int id = resultSet.getInt("id");
+					String name = resultSet.getString("name");
+					String address = resultSet.getString("address");
+					String tel = resultSet.getString("tel");
 					School school = new School();
 					school.setId(id);
 					school.setAddress(address);
@@ -78,6 +78,34 @@ public class SchoolDao {
 			e.printStackTrace();
 		}
 		return schools;
+	}
+	
+	
+	public School getSchoolById(int id) {
+		ResultSet resultSet = DbUtils.find("select * from school where id="+id);
+
+		School school = null ;
+		try {
+			while (resultSet.next()) {
+				try {
+					String name = resultSet.getString("name");
+					String address = resultSet.getString("address");
+					String tel = resultSet.getString("tel");
+					school = new School();
+					school.setId(id);
+					school.setAddress(address);
+					school.setName(name);
+					school.setTel(tel);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return school;
 	}
 
 }
