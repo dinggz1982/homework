@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import gzhu.edu.cn.homework.admin.dao.SchoolDao;
 import gzhu.edu.cn.homework.admin.entity.School;
 import gzhu.edu.cn.homework.admin.service.SchoolService;
 
@@ -56,10 +55,17 @@ public class SchoolServlet extends HttpServlet {
 			request.getRequestDispatcher("addSuccess.jsp").forward(request, response);
 		}
 		else if (method.equals("edit")) {
+			//修改学校
 			int schoolId = Integer.parseInt(request.getParameter("schoolId"));
 			School school = this.schoolService.getSchoolById(schoolId);
 			request.setAttribute("school",school);
 			request.getRequestDispatcher("addSchool.jsp").forward(request, response);
+		}
+		else if (method.equals("delete")) {
+			//删除学校
+			int schoolId = Integer.parseInt(request.getParameter("schoolId"));
+			this.schoolService.deleteSchoolById(schoolId);
+			response.sendRedirect("school");
 		}
 	}
 

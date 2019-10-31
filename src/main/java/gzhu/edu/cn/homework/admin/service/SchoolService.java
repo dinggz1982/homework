@@ -43,4 +43,13 @@ public class SchoolService {
 	public boolean updateSchool(School school) {
 		return dao.updateSchool(school);
 	}
+	
+	/**
+	 * 根据id删除学校
+	 * @param schoolId
+	 * @return
+	 */
+	public boolean deleteSchoolById(int schoolId) {
+		return dao.deleteSchoolById(schoolId);
+	}
 }

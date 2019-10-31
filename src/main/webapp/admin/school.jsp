@@ -85,7 +85,7 @@
 		<div class="layui-body">
 			<!-- 内容主体区域 -->
 			<div style="padding: 15px;">
-	<h1>学校列表</h1>
+	<h1 style="margin: 0 auto;padding-bottom: 20px;text-align: center;">学校列表</h1>
 				<div style="width: 90%; margin: 0 auto;">
 					
 					<div>
@@ -117,7 +117,7 @@
 									<td>
 									<a onclick="addCollege(${school.id},'${school.name }')" class="layui-btn layui-btn-normal">新增学院</a>
 									<a onclick="editSchool(${school.id})" class="layui-btn layui-btn-normal">修改</a>
-									<a href="#" class="layui-btn layui-btn-normal">删除</a>
+									<a onclick="deleteSchool(${school.id})" class="layui-btn layui-btn-normal">删除</a>
 									
 									</td>
 								</tr>
@@ -177,6 +177,17 @@
 				  area: ['600px', '400px'],
 				  content: 'school?method=edit&schoolId='+schoolId //iframe的url
 				}); 
+		}
+		//刪除學校
+		function deleteSchool(schoolId){
+			layer.confirm('确定删除？', {
+				  btn: ['确定','放弃'] //按钮
+				}, function(){
+				  //以后改成通过ajax删除学校
+				  window.location.href='school?method=delete&schoolId='+schoolId;
+				}, function(){
+				  
+				});
 		}
 	</script>
 </body>
