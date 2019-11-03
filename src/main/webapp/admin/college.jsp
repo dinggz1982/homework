@@ -121,7 +121,7 @@
 									<td>${college.address }</td>
 									<td>${college.tel }</td>
 									<td>
-									<a href="#" class="layui-btn layui-btn-normal">新增专业</a>
+									<a onclick="addMajor(${college.id },'${college.school.name }','${college.name }')" class="layui-btn layui-btn-normal">新增专业</a>
 									<a href="#" class="layui-btn layui-btn-normal">修改</a>
 									<a href="#" class="layui-btn layui-btn-normal">删除</a>
 									
@@ -144,8 +144,22 @@
 		//JavaScript代码区域
 		layui.use('element', function() {
 			var element = layui.element;
-
 		});
+		//引入layer弹出层
+		layui.use('layer', function(){
+			  var layer = layui.layer;
+			}); 
+		//新增专业
+		function addMajor(collegeId,schoolName,collegeName){
+			layer.open({
+				  type: 2,
+				  title: '为'+schoolName +"--" +collegeName+'新增专业',
+				  shadeClose: true,
+				  shade: 0.8,
+				  area: ['600px', '400px'],
+				  content: 'major?method=add&collegeId='+collegeId //iframe的url
+				}); 
+		}
 	</script>
 </body>
 </html>

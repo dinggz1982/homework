@@ -10,7 +10,7 @@ import java.sql.Statement;
 import java.util.Properties;
 
 /**
- * Êı¾İ¿â²Ù×÷Í¨ÓÃÀà
+ * ï¿½ï¿½ï¿½İ¿ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½
  * 
  * @author Administrator
  */
@@ -60,11 +60,11 @@ public class DbUtils {
 	}
 
 	/**
-	 * ´´½¨connection
+	 * ï¿½ï¿½ï¿½ï¿½connection
 	 * 
 	 * @return
 	 * @Author:Administrator
-	 * @Time:ÏÂÎç7:16:25
+	 * @Time:ï¿½ï¿½ï¿½ï¿½7:16:25
 	 */
 	public static Connection getConnection() {
 		try {
@@ -79,11 +79,11 @@ public class DbUtils {
 	}
 
 	/**
-	 * ¸ù¾İsql²åÈëÊı¾İ
-	 * 
+	 *  æ ¹æ®sqlæ’å…¥æ•°æ®
+	 * @author dinggz
+	 * @date 2019å¹´11æœˆ4æ—¥ ä¸Šåˆ12:42:40
+	 * @param sql
 	 * @return
-	 * @Author:Administrator
-	 * @Time:ÏÂÎç7:17:35
 	 */
 	public static boolean insert(String sql) {
 		boolean result = false;
@@ -96,14 +96,35 @@ public class DbUtils {
 		}
 		return result;
 	}
+	/**
+	 * æ ¹æ®sqlæ’å…¥æ•°æ®ï¼Œå¹¶è¿”å›æ’å…¥æ•°æ®å¯¹åº”çš„ä¸»é”®çš„å€¼
+	 * @author dinggz
+	 * @date 2019å¹´11æœˆ4æ—¥ ä¸Šåˆ12:46:41
+	 * @param sql
+	 * @return
+	 */
+	public static int insertReturnKeyId(String sql) {
+		int id=0;
+		try {
+			statement = getConnection().createStatement();
+			statement.executeUpdate(sql,Statement.RETURN_GENERATED_KEYS);
+			ResultSet resultSet = 	statement.getGeneratedKeys();
+			if (resultSet.next())
+				id = resultSet.getInt(1);//Idåœ¨ç»“æœé›†ä¸­çš„ç¬¬ä¸€ä½
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return id;
+	}
 
 	/**
-	 * ¸üĞÂ
+	 * ï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @param sql
 	 * @return
 	 * @Author:Administrator
-	 * @Time:ÏÂÎç7:22:07
+	 * @Time:ï¿½ï¿½ï¿½ï¿½7:22:07
 	 */
 	public static boolean update(String sql) {
 		boolean result = false;
@@ -118,11 +139,11 @@ public class DbUtils {
 	}
 
 	/**
-	 * É¾³ı
+	 * É¾ï¿½ï¿½
 	 * 
 	 * @return
 	 * @Author:Administrator
-	 * @Time:ÏÂÎç7:22:00
+	 * @Time:ï¿½ï¿½ï¿½ï¿½7:22:00
 	 */
 	public static boolean delete(String sql) {
 		boolean result = false;
@@ -137,12 +158,12 @@ public class DbUtils {
 	}
 
 	/**
-	 * ²éÕÒ
+	 * ï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @param sql
 	 * @return
 	 * @Author:Administrator
-	 * @Time:ÏÂÎç7:22:51
+	 * @Time:ï¿½ï¿½ï¿½ï¿½7:22:51
 	 */
 	public static ResultSet find(String sql) {
 		try {
