@@ -32,6 +32,7 @@ public class DbUtils {
 
 	private static String jdbcproperies = "jdbc.properies";
 
+	//初始化数据库连接
 	static {
 		Properties properties = new Properties();
 
@@ -60,11 +61,9 @@ public class DbUtils {
 	}
 
 	/**
-	 * ����connection
-	 * 
+	 * 创建connection
 	 * @return
 	 * @Author:Administrator
-	 * @Time:����7:16:25
 	 */
 	public static Connection getConnection() {
 		try {
@@ -96,6 +95,7 @@ public class DbUtils {
 		}
 		return result;
 	}
+	
 	/**
 	 * 根据sql插入数据，并返回插入数据对应的主键的值
 	 * @author dinggz
@@ -119,12 +119,9 @@ public class DbUtils {
 	}
 
 	/**
-	 * ����
-	 * 
+	 * 根据sql更新
 	 * @param sql
 	 * @return
-	 * @Author:Administrator
-	 * @Time:����7:22:07
 	 */
 	public static boolean update(String sql) {
 		boolean result = false;
@@ -139,11 +136,9 @@ public class DbUtils {
 	}
 
 	/**
-	 * ɾ��
-	 * 
+	 * 根据sql删除数据
+	 * @param sql
 	 * @return
-	 * @Author:Administrator
-	 * @Time:����7:22:00
 	 */
 	public static boolean delete(String sql) {
 		boolean result = false;
@@ -158,12 +153,9 @@ public class DbUtils {
 	}
 
 	/**
-	 * ����
-	 * 
+	 * 查询
 	 * @param sql
 	 * @return
-	 * @Author:Administrator
-	 * @Time:����7:22:51
 	 */
 	public static ResultSet find(String sql) {
 		try {
@@ -177,6 +169,9 @@ public class DbUtils {
 		return resultSet;
 	}
 
+	/**
+	 * 关闭数据库连接
+	 */
 	public static void close() {
 		if (resultSet != null) {
 			try {
@@ -202,7 +197,6 @@ public class DbUtils {
 				e.printStackTrace();
 			}
 		}
-
 	}
 
 }
