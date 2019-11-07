@@ -10,7 +10,7 @@ import java.sql.Statement;
 import java.util.Properties;
 
 /**
- * ���ݿ����ͨ����
+ * JDBC工具类
  * 
  * @author Administrator
  */

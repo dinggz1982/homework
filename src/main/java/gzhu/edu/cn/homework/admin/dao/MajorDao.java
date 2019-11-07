@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import gzhu.edu.cn.homework.admin.entity.Major;
 import gzhu.edu.cn.homework.utils.DbUtils;
+import gzhu.edu.cn.homework.utils.Page;
 
 /**
  * 
@@ -23,18 +24,18 @@ public class MajorDao {
 	public boolean saveMajor(Major major) {
 		Connection connection = null;
 		try {
-			 connection = DbUtils.getConnection();
-			//开启事务
+			connection = DbUtils.getConnection();
+			// 开启事务
 			connection.setAutoCommit(false);
 			int majorId = DbUtils.insertReturnKeyId("insert into major(name,description) values('" + major.getName()
 					+ "','" + major.getDescription() + "')");
 			DbUtils.insert("insert into major_college(major_id,college_id) values(" + majorId + ","
 					+ major.getCollege().getId() + ")");
-			//提交事务
+			// 提交事务
 			connection.commit();
 			return true;
 		} catch (Exception e) {
-			if(connection!=null) {
+			if (connection != null) {
 				try {
 					connection.rollback();
 				} catch (SQLException e1) {
@@ -43,10 +44,33 @@ public class MajorDao {
 				}
 			}
 			return false;
-		}finally {
+		} finally {
 			DbUtils.close();
 		}
 
 	}
 
+	/**
+	 * 
+	 * @param size
+	 * @param currentPage
+	 * @return
+	 */
+	public Page<Major> getPage(Integer size, Integer currentPage) {
+		
+		Page<Major> page = new Page<>();
+		page.setCurrentPage(currentPage);
+		//page.setList();
+		//根据当前页面和分页大小获取当前的list
+		//DbUtils.find("select major ");
+		
+		
+		
+		
+		
+		
+		
+		
+		return page;
+	}
 }
