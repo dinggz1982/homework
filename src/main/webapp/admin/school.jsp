@@ -109,7 +109,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach items="${schools }" var="school" varStatus="status">
+							<c:forEach items="${page.list }" var="school" varStatus="status">
 								<tr>
 									<td>${status.index+1 }</td>
 									<td><a href="college?method=list&schoolId=${school.id}" target="_blank">${school.name }</a></td>
@@ -125,6 +125,7 @@
 							</c:forEach>
 						</tbody>
 					</table>
+					<div id="page"></div>
 				</div>
 			</div>
 		</div>
@@ -137,9 +138,25 @@
 	<script src="../static/layui/layui.js"></script>
 	<script>
 		//JavaScript代码区域
-		layui.use('element', function() {
+		layui.use(['element','laypage'], function() {
 			var element = layui.element;
-
+			var laypage = layui.laypage;
+			 //执行一个laypage实例
+			  laypage.render({
+			    elem: 'page' //注意，这里的 test1 是 ID，不用加 # 号
+			    ,count: ${page.total} //数据总数，从服务端得到
+			    ,limit:${page.size}
+			    ,layout: ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
+			    ,curr:${page.currentPage}
+			    ,jump: function(obj,first){
+		            if (!first) {
+		                var size=obj.limit;
+		                var pageNum=obj.curr;
+		                window.location.href="school?size="+size+"&currentPage="+pageNum;//跳转链接
+		            }
+		            console.log(obj)
+		        }
+			  });
 		});
 		layui.use('layer', function(){
 			  var layer = layui.layer;

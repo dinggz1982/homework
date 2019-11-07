@@ -4,6 +4,7 @@ import java.util.List;
 
 import gzhu.edu.cn.homework.admin.dao.SchoolDao;
 import gzhu.edu.cn.homework.admin.entity.School;
+import gzhu.edu.cn.homework.utils.Page;
 
 public class SchoolService {
 
@@ -51,5 +52,14 @@ public class SchoolService {
 	 */
 	public boolean deleteSchoolById(int schoolId) {
 		return dao.deleteSchoolById(schoolId);
+	}
+	/**
+	 * 获取分页
+	 * @param currentPage
+	 * @param size
+	 * @return
+	 */
+	public Page<School> getPage(int currentPage, int size) {
+		return dao.getPage(currentPage, size);
 	}
 }

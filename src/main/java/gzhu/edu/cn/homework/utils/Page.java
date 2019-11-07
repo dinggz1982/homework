@@ -3,18 +3,17 @@ package gzhu.edu.cn.homework.utils;
 import java.util.List;
 
 public class Page<T> {
-
-	//当前页面
+	
+	//当前页
 	private int currentPage;
 	
 	//总记录数
-	private int totalNumber;
-	
-	//总页面
-	private int pages;
+	private int total;
 	
 	//每一页的记录数
 	private int size;
+	
+	private int totalPage;
 	
 	private List<T> list;
 
@@ -26,20 +25,12 @@ public class Page<T> {
 		this.currentPage = currentPage;
 	}
 
-	public int getTotalNumber() {
-		return totalNumber;
+	public int getTotal() {
+		return total;
 	}
 
-	public void setTotalNumber(int totalNumber) {
-		this.totalNumber = totalNumber;
-	}
-
-	public int getPages() {
-		return pages;
-	}
-
-	public void setPages(int pages) {
-		this.pages = pages;
+	public void setTotal(int total) {
+		this.total = total;
 	}
 
 	public int getSize() {
@@ -50,6 +41,14 @@ public class Page<T> {
 		this.size = size;
 	}
 
+	public int getTotalPage() {
+		return totalPage;
+	}
+
+	public void setTotalPage(int totalPage) {
+		this.totalPage = totalPage;
+	}
+
 	public List<T> getList() {
 		return list;
 	}
@@ -57,5 +56,5 @@ public class Page<T> {
 	public void setList(List<T> list) {
 		this.list = list;
 	}
-	
+
 }

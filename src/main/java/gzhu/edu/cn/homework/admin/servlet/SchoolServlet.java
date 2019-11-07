@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import gzhu.edu.cn.homework.admin.entity.School;
 import gzhu.edu.cn.homework.admin.service.SchoolService;
+import gzhu.edu.cn.homework.utils.Page;
 
 /**
  * Servlet implementation class SchoolServlet
@@ -27,12 +28,25 @@ public class SchoolServlet extends HttpServlet {
 		String method = request.getParameter("method");
 		if (method == null || method.length() == 0) {
 			// 显示学校列表
-			List<School> schools = 	schoolService.getAllSchool();
-			for (Iterator iterator = schools.iterator(); iterator.hasNext();) {
-				School school = (School) iterator.next();
+			
+			String currentPageStr = request.getParameter("currentPage");
+			int currentPage;
+			if(currentPageStr==null) {
+				currentPage= 1;
+			}else {
+				currentPage = Integer.parseInt(currentPageStr);
 			}
-			request.setAttribute("schools", schools);
-			request.setAttribute("school", "123");
+			
+			String sizeStr = request.getParameter("size");
+			int size;
+			if(sizeStr==null) {
+				size= 10;
+			}else {
+				size = Integer.parseInt(sizeStr);
+			}
+			
+			Page<School> page = this.schoolService.getPage(currentPage, size);
+			request.setAttribute("page", page);
 			request.getRequestDispatcher("school.jsp").forward(request, response);
 		
 		} else if (method.equals("add")) {

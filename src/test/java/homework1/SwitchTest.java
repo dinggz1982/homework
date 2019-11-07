@@ -1,24 +1,20 @@
 package homework1;
 
+import gzhu.edu.cn.homework.admin.entity.School;
+import gzhu.edu.cn.homework.admin.service.SchoolService;
+
 public class SwitchTest {
 
 	public static void main(String[] args) {
 
-		String method = "delete11";
-		switch (method) {
-		case "add":
-			System.out.println("add method");
-			break;
-		case "delete":
-			System.out.println("delete method");
-			break;
-		case "edit":
-			System.out.println("edit method");
-			break;
-		default:
-			System.out.println("default method");
-			break;
+		for (int i = 1; i <= 100; i++) {
+			SchoolService schoolService = new SchoolService();
+			School school = new School("测试学校" + i,"测试地址"+i,"测试电话"+i);
+			schoolService.saveSchool(school);
+			
 		}
+		
+		
 
 	}
 }

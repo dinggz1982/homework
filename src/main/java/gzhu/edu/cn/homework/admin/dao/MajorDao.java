@@ -1,6 +1,7 @@
 package gzhu.edu.cn.homework.admin.dao;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import gzhu.edu.cn.homework.admin.entity.Major;
@@ -56,21 +57,15 @@ public class MajorDao {
 	 * @param currentPage
 	 * @return
 	 */
-	public Page<Major> getPage(Integer size, Integer currentPage) {
-		
+	/*public Page<Major> getPage(Integer size, Integer currentPage) {
+
 		Page<Major> page = new Page<>();
 		page.setCurrentPage(currentPage);
-		//page.setList();
-		//根据当前页面和分页大小获取当前的list
-		//DbUtils.find("select major ");
-		
-		
-		
-		
-		
-		
-		
-		
+		// page.setList();
+		// 根据当前页面和分页大小获取当前的list
+		ResultSet resultSet = DbUtils.find(
+				"select s.id as sid,s.name as sname,c.name as cname,c.id as cid,m.name as mname,m.id as mid from major m,school s,college c,major_college mj where s.id=c.school_id and mj.major_id=m.id and c.id = mj.college_id limit ");
+
 		return page;
-	}
+	}*/
 }

@@ -2,6 +2,20 @@ package gzhu.edu.cn.homework.admin.entity;
 
 public class School {
 	
+	/**
+	 * 构造方法
+	 */
+	public School() {
+		
+	}
+	
+	public School(String name,String address,String tel) {
+		this.id= id;
+		this.name = name;
+		this.address = address;
+		this.tel = tel;
+	}
+	
 	private int id;
 	
 	private String name;
