@@ -7,6 +7,7 @@ package gzhu.edu.cn.homework.admin.service;
 
 import gzhu.edu.cn.homework.admin.dao.MajorDao;
 import gzhu.edu.cn.homework.admin.entity.Major;
+import gzhu.edu.cn.homework.utils.Page;
 
 public class MajorService {
 	
@@ -23,4 +24,9 @@ public class MajorService {
 		return majorDao.saveMajor(major);
 	}
 
+	
+	
+	public Page<Major> getPage(int currentPage, int size) {
+		return majorDao.getPage(currentPage, size);
+	}
 }
