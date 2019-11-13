@@ -7,8 +7,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>后台管理</title>
-<%@include file="../include/head.jsp" %>
+<title>后台管理--用户管理</title>
+<%@include file="../include/head.jsp"%>
 <link rel="stylesheet" href="../static/layui/css/layui.css">
 </head>
 <body class="layui-layout-body">
@@ -57,16 +57,16 @@
 						href="javascript:;">管理设置</a>
 						<dl class="layui-nav-child">
 							<dd>
-								<a href="javascript:;" class="layui-this">学校管理</a>
+								<a href="<%=basePath%>admin/school">学校管理</a>
 							</dd>
 							<dd>
-								<a href="<%=basePath %>admin/college">学院管理</a>
+								<a href="<%=basePath%>admin/college">学院管理</a>
 							</dd>
 							<dd>
 								<a href="javascript:;">专业管理</a>
 							</dd>
 							<dd>
-								<a href="<%=basePath %>admin/user">用户管理</a>
+								<a href="/admin/user" class="layui-this">用户管理</a>
 							</dd>
 						</dl></li>
 					<li class="layui-nav-item"><a href="javascript:;">作业管理</a>
@@ -86,59 +86,79 @@
 		<div class="layui-body">
 			<!-- 内容主体区域 -->
 			<div style="padding: 15px;">
-	<h1 style="margin: 0 auto;padding-bottom: 20px;text-align: center;">学校列表</h1>
+				<h1
+					style="margin: 0 auto; padding-bottom: 20px; text-align: center;">用户列表</h1>
 				<div style="width: 90%; margin: 0 auto;">
-					
-					<div>
-					<a onclick="addSchool()" class="layui-btn layui-btn-normal">新增学校</a>
+
+					<div class="layui-upload">
+						<a onclick="addSchool()" class="layui-btn layui-btn-normal">新增用户</a>
+						<button type="button" class="layui-btn layui-btn-normal"
+							id="file">选择文件</button>
+						<button type="button" class="layui-btn" id="upload">开始上传</button>
 					</div>
-					
-					<table class="layui-table">
-						<colgroup>
-							<col width="50">
-							<col width="200">
-							<col>
-						</colgroup>
-						<thead>
-							<tr>
-								<th>序号</th>
-								<th>学校名字</th>
-								<th>学校地址</th>
-								<th>学校电话</th>
-								<th>操作</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach items="${page.list }" var="school" varStatus="status">
-								<tr>
-									<td>${status.index+1 }</td>
-									<td><a href="college?method=list&schoolId=${school.id}" target="_blank">${school.name }</a></td>
-									<td>${school.address }</td>
-									<td>${school.tel }</td>
-									<td>
-									<a onclick="addCollege(${school.id},'${school.name }')" class="layui-btn layui-btn-normal">新增学院</a>
-									<a onclick="editSchool(${school.id})" class="layui-btn layui-btn-normal">修改</a>
-									<a onclick="deleteSchool(${school.id})" class="layui-btn layui-btn-normal">删除</a>
-									
-									</td>
-								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
-					<div id="page"></div>
 				</div>
+
+				<table class="layui-table">
+					<colgroup>
+						<col width="50">
+						<col width="200">
+						<col>
+					</colgroup>
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>用户名</th>
+							<th>真实姓名</th>
+							<th>性别</th>
+							<th>类型</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${page.list }" var="user" varStatus="status">
+							<tr>
+								<td>${status.index+1 }</td>
+								<td>${user.username }</td>
+								<td>${user.realname }</td>
+								<td>${user.gender }</td>
+								<td>${user.type }</td>
+								<td><a onclick="" class="layui-btn layui-btn-normal">作业</a>
+									<a onclick="" class="layui-btn layui-btn-normal">修改</a> <a
+									onclick="" class="layui-btn layui-btn-normal">删除</a></td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+				<div id="page"></div>
 			</div>
 		</div>
+	</div>
 
-		<div class="layui-footer">
-			<!-- 底部固定区域 -->
-			© 广州大学-教育技术181-作业管理系统
-		</div>
+	<div class="layui-footer">
+		<!-- 底部固定区域 -->
+		© 广州大学-教育技术181-作业管理系统
+	</div>
 	</div>
 	<script src="../static/layui/layui.js"></script>
 	<script>
 		//JavaScript代码区域
-		layui.use(['element','laypage'], function() {
+		layui.use(['element','laypage','upload'], function() {
+			
+			//处理用户上传
+			 var $ = layui.jquery,upload = layui.upload;
+			//选完文件后不自动上传
+			  upload.render({
+			    elem: '#file'
+			    ,url: 'user?method=fileUpload'
+			    ,accept: 'file' //普通文件
+			    ,exts: 'xls|excel|xlsx' //只允许上传压缩文件
+			    ,auto: false
+			    //,multiple: true
+			    ,bindAction: '#upload'
+			    ,done: function(res){
+			      console.log(res)
+			    }
+			  });
 			var element = layui.element;
 			var laypage = layui.laypage;
 			 //执行一个laypage实例
@@ -152,7 +172,7 @@
 		            if (!first) {
 		                var size=obj.limit;
 		                var pageNum=obj.curr;
-		                window.location.href="school?size="+size+"&currentPage="+pageNum;//跳转链接
+		                window.location.href="user?size="+size+"&currentPage="+pageNum;//跳转链接
 		            }
 		            console.log(obj)
 		        }

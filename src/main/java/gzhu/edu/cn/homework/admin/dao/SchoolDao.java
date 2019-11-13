@@ -33,7 +33,6 @@ public class SchoolDao {
 	 * @param schoolId
 	 * @return
 	 * @Author:Administrator
-	 * @Time:����7:10:21
 	 */
 	public boolean deleteSchoolById(int schoolId) {
 		boolean success = false;
@@ -172,7 +171,6 @@ public class SchoolDao {
 			e.printStackTrace();
 		}
 		return 0;
-
 	}
 
 }

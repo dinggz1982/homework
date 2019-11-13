@@ -66,7 +66,7 @@
 								<a href="javascript:;">专业管理</a>
 							</dd>
 							<dd>
-								<a href="">教师管理</a>
+								<a href="<%=basePath %>admin/user">用户管理</a>
 							</dd>
 						</dl></li>
 					<li class="layui-nav-item"><a href="javascript:;">作业管理</a>

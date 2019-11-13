@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import gzhu.edu.cn.homework.utils.DbUtils;
 
 /**
-  * 用户注册Servlet
+  * 锟矫伙拷注锟斤拷Servlet
  * @author Administrator
  *
  */
@@ -17,7 +17,6 @@ public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * 处理用户注册的方法
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");

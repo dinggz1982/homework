@@ -45,6 +45,13 @@
 		<servlet-name>MajorServlet</servlet-name>
 		<servlet-class>gzhu.edu.cn.homework.admin.servlet.MajorServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>UserServlet</display-name>
+		<servlet-name>UserServlet</servlet-name>
+		<servlet-class>gzhu.edu.cn.homework.admin.servlet.UserServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>RegisterServlet</servlet-name>
 		<url-pattern>/register</url-pattern>
@@ -76,5 +83,9 @@
 	<servlet-mapping>
 		<servlet-name>MajorServlet</servlet-name>
 		<url-pattern>/admin/major</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UserServlet</servlet-name>
+		<url-pattern>/admin/user</url-pattern>
 	</servlet-mapping>
 </web-app>
