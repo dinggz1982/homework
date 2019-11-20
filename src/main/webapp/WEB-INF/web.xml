@@ -52,6 +52,13 @@
 		<servlet-name>UserServlet</servlet-name>
 		<servlet-class>gzhu.edu.cn.homework.admin.servlet.UserServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>OutLineServlet</display-name>
+		<servlet-name>OutLineServlet</servlet-name>
+		<servlet-class>gzhu.edu.cn.homework.admin.servlet.OutLineServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>RegisterServlet</servlet-name>
 		<url-pattern>/register</url-pattern>
@@ -87,5 +94,9 @@
 	<servlet-mapping>
 		<servlet-name>UserServlet</servlet-name>
 		<url-pattern>/admin/user</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>OutLineServlet</servlet-name>
+		<url-pattern>/outline</url-pattern>
 	</servlet-mapping>
 </web-app>
