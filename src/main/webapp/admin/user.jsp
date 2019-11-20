@@ -66,7 +66,7 @@
 								<a href="javascript:;">专业管理</a>
 							</dd>
 							<dd>
-								<a href="/admin/user" class="layui-this">用户管理</a>
+								<a href="<%=basePath%>admin/user" class="layui-this">用户管理</a>
 							</dd>
 						</dl></li>
 					<li class="layui-nav-item"><a href="javascript:;">作业管理</a>
@@ -91,10 +91,7 @@
 				<div style="width: 90%; margin: 0 auto;">
 
 					<div class="layui-upload">
-						<a onclick="addSchool()" class="layui-btn layui-btn-normal">新增用户</a>
-						<button type="button" class="layui-btn layui-btn-normal"
-							id="file">选择文件</button>
-						<button type="button" class="layui-btn" id="upload">开始上传</button>
+						<a onclick="addUser()" class="layui-btn layui-btn-normal">批量导入用户</a>
 					</div>
 				</div>
 
@@ -191,15 +188,15 @@
 				  content: 'college?method=add&schoolId='+schoolId //iframe的url
 				}); 
 		}
-		//新增学校
-		function addSchool(){
+		//新增用户
+		function addUser(){
 			layer.open({
 				  type: 2,
-				  title: '新增学校学院',
+				  title: '批量导入用户',
 				  shadeClose: true,
 				  shade: 0.8,
 				  area: ['600px', '400px'],
-				  content: 'addSchool.jsp', //iframe的url
+				  content: 'user?method=import', //iframe的url
 				  end:function(){
 					  location.reload();
 				  }

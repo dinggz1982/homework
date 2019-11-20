@@ -14,6 +14,36 @@ public class User {
 	
 	private String description;
 	
+	private College college;
+	
+	private Major major;
+	
+	private ClassInfo classInfo;
+	
+	public College getCollege() {
+		return college;
+	}
+
+	public void setCollege(College college) {
+		this.college = college;
+	}
+
+	public Major getMajor() {
+		return major;
+	}
+
+	public void setMajor(Major major) {
+		this.major = major;
+	}
+
+	public ClassInfo getClassInfo() {
+		return classInfo;
+	}
+
+	public void setClassInfo(ClassInfo classInfo) {
+		this.classInfo = classInfo;
+	}
+
 	private int type;
 
 	public int getId() {

@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>后台管理--学院管理</title>
+<%@include file="../include/head.jsp" %>
 <link rel="stylesheet" href="../static/layui/css/layui.css">
 </head>
 <body class="layui-layout-body">
@@ -65,7 +66,7 @@
 								<a href="javascript:;">专业管理</a>
 							</dd>
 							<dd>
-								<a href="/admin/user">用户管理</a>
+								<a href="<%=basePath %>admin/user">用户管理</a>
 							</dd>
 						</dl></li>
 					<li class="layui-nav-item"><a href="javascript:;">作业管理</a>
@@ -124,7 +125,6 @@
 									<a onclick="addMajor(${college.id },'${college.school.name }','${college.name }')" class="layui-btn layui-btn-normal">新增专业</a>
 									<a href="#" class="layui-btn layui-btn-normal">修改</a>
 									<a href="#" class="layui-btn layui-btn-normal">删除</a>
-									
 									</td>
 								</tr>
 							</c:forEach>

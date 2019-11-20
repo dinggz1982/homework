@@ -12,7 +12,7 @@ import gzhu.edu.cn.homework.utils.Page;
 public class SchoolDao {
 
 	/**
-	 * 保存学习
+	 * 保存学校
 	 * 
 	 * @param school
 	 * @return
@@ -28,7 +28,7 @@ public class SchoolDao {
 	}
 
 	/**
-	 * 删除学习
+	 * 删除学校
 	 * 
 	 * @param schoolId
 	 * @return

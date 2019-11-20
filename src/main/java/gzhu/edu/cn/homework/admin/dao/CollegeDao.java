@@ -12,12 +12,11 @@ import gzhu.edu.cn.homework.utils.DbUtils;
 public class CollegeDao {
 
 	/**
-	 * 保存学院
+	 * 淇濆瓨瀛﹂櫌
 	 * 
 	 * @param school
 	 * @return
 	 * @Author:Administrator
-	 * @Time:下午7:07:46
 	 */
 	public boolean saveCollege(College college) {
 		boolean success = false;
@@ -29,12 +28,10 @@ public class CollegeDao {
 	}
 
 	/**
-	 * 删除学校
-	 * 
+	  * 鍒犻櫎瀛﹂櫌
 	 * @param schoolId
 	 * @return
 	 * @Author:Administrator
-	 * @Time:下午7:10:21
 	 */
 	public boolean deleteCollegeById(int collegeId) {
 		boolean success = false;
@@ -53,8 +50,7 @@ public class CollegeDao {
 	}
 
 	/**
-	 * 查询
-	 * 
+	 * 鍒楀嚭瀛﹂櫌
 	 * @return
 	 */
 	public List<College> findAll() {
@@ -100,8 +96,7 @@ public class CollegeDao {
 	}
 
 	/**
-	 * 查询
-	 * 
+	 * 鏍规嵁瀛︽牎鍚嶅瓧鑾峰彇瀛﹂櫌淇℃伅
 	 * @return
 	 */
 	public List<College> findCollegeBySchoolId(int schoolId) {
@@ -142,5 +137,44 @@ public class CollegeDao {
 			e.printStackTrace();
 		}
 		return colleges;
+	}
+	
+	public College findCollegeByNameAndSchoolId(String name,int schoolId) {
+		ResultSet resultSet = DbUtils.find(
+				"select s.id as sid,s.name as sname,s.address as saddress,s.tel as stel,c.id as cid,c.name as cname,c.address as caddress,c.tel as ctel from school s,college c where  s.id=c.school_id and s.id="+schoolId + " and c.name="+name);
+		College college = null;
+		try {
+			while (resultSet.next()) {
+				try {
+					int sid = resultSet.getInt("sid");
+					String sname = resultSet.getString("sname");
+					String saddress = resultSet.getString("saddress");
+					String stel = resultSet.getString("stel");
+					School school = new School();
+					school.setId(sid);
+					school.setAddress(saddress);
+					school.setName(sname);
+					school.setTel(stel);
+					
+					college = new College();
+					int cid = resultSet.getInt("cid");
+					String cname = resultSet.getString("cname");
+					String caddress = resultSet.getString("caddress");
+					String ctel = resultSet.getString("ctel");
+					college.setAddress(caddress);
+					college.setId(cid);
+					college.setName(cname);
+					college.setSchool(school);
+					college.setTel(ctel);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return college;
 	}
 }
