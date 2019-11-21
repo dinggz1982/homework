@@ -58,7 +58,7 @@ public class SchoolServlet extends HttpServlet {
 			school.setName(name);
 			school.setTel(tel);
 			String schoolId = request.getParameter("id");
-			if(schoolId==null) {
+			if(schoolId==null||schoolId.equals("")) {
 				schoolService.saveSchool(school);
 			}else {
 				int id = Integer.parseInt(schoolId);

@@ -59,6 +59,13 @@
 		<servlet-name>OutLineServlet</servlet-name>
 		<servlet-class>gzhu.edu.cn.homework.admin.servlet.OutLineServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>KnowledgeServlet</display-name>
+		<servlet-name>KnowledgeServlet</servlet-name>
+		<servlet-class>gzhu.edu.cn.homework.knowledge.KnowledgeServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>RegisterServlet</servlet-name>
 		<url-pattern>/register</url-pattern>
@@ -98,5 +105,9 @@
 	<servlet-mapping>
 		<servlet-name>OutLineServlet</servlet-name>
 		<url-pattern>/outline</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>KnowledgeServlet</servlet-name>
+		<url-pattern>/knowledge</url-pattern>
 	</servlet-mapping>
 </web-app>

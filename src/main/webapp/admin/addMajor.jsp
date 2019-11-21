@@ -10,7 +10,6 @@
 <body class="layui-layout-body">
 			<!-- 内容主体区域 -->
 			<div style="padding: 15px;">
-
 				<div style="width: 80%; margin: 0 auto;">
 					<!-- 新增专业学校的表单 -->
 					<form class="layui-form" action="major" method="post">

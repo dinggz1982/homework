@@ -1,8 +1,8 @@
 #jdbc驱动
 jdbc.driver=com.mysql.cj.jdbc.Driver
-#jdbc URLַ
-jdbc.url=jdbc:mysql://localhost/jyjs181?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+#jdbc URL
+jdbc.url=jdbc:mysql://localhost/homework?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
 #数据库用户名
 jdbc.username=root
-#数据库密码ַ
-jdbc.password=root
+#数据库密码
+jdbc.password=123456

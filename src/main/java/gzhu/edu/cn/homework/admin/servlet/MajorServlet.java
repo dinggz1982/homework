@@ -1,6 +1,7 @@
 package gzhu.edu.cn.homework.admin.servlet;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -8,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import gzhu.edu.cn.homework.admin.entity.College;
 import gzhu.edu.cn.homework.admin.entity.Major;
-import gzhu.edu.cn.homework.admin.entity.School;
 import gzhu.edu.cn.homework.admin.service.MajorService;
 import gzhu.edu.cn.homework.utils.Page;
 
@@ -34,6 +34,7 @@ public class MajorServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		String method = request.getParameter("method");
 		if (method == null) {
 			// 跳转到专业的显示界面
